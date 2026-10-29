@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000000"><meta name="description" content="Explore MOSAIC: choose recombination sites and discover how a genetic circuit changes.">
+<title>Play MOSAIC</title><link rel="stylesheet" href="allprinciple.css"><link rel="stylesheet" href="play.css">
+</head><body class="ap-test-shell">
+<main>
+<header class="play-header"><span class="play-brand">MOSAIC</span><h1>Explore the circuit</h1><p>Choose a site. Recombine the DNA. Discover the outcome.</p></header>
+<div class="mobile-tools"><span>Swipe the circuit to explore</span><button id="zoom-out" aria-label="Zoom out">−</button><button id="zoom-in" aria-label="Zoom in">+</button><button id="fit">Fit</button></div>
+<div id="circuit-viewport" tabindex="0" role="region" aria-label="Scrollable genetic circuit"><div id="mosaic-allprinciple-animation"></div></div>
+<footer><a href="https://2026.igem.wiki/shanghaitech-china/">Explore the ShanghaiTech-China Wiki ↗</a></footer>
+</main>
+<section class="play-controls" aria-label="Circuit choices"><p id="stage-message" aria-live="polite">Watch Cre expression…</p><div id="choices"></div><div class="restart-controls"><button id="restart">Start again</button><button id="restart-bxb" hidden>Restart from Bxb1</button></div></section>
+<script defer src="allprinciple.js"></script><script defer src="play.js"></script>
+</body></html>
