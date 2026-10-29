@@ -1,11 +1,17 @@
 (() => {
   const viewport=document.getElementById('circuit-viewport'), canvas=document.getElementById('mosaic-allprinciple-animation');
   const mobile=matchMedia('(max-width:720px)'), choices=document.getElementById('choices'), message=document.getElementById('stage-message');
-  let width=720, previous='';
-  function zoom(next){const ratio=(viewport.scrollLeft+viewport.clientWidth/2)/width;width=Math.max(viewport.clientWidth,Math.min(1120,next));canvas.style.setProperty('--circuit-width',width+'px');viewport.scrollLeft=ratio*width-viewport.clientWidth/2;}
-  document.getElementById('zoom-in').onclick=()=>zoom(width+160);
-  document.getElementById('zoom-out').onclick=()=>zoom(width-160);
-  document.getElementById('fit').onclick=()=>zoom(viewport.clientWidth);
+  let previous='';
+  function zoom(delta){
+    const before=canvas.getBoundingClientRect().width;
+    const center=(viewport.scrollLeft+viewport.clientWidth/2)/before;
+    const next=Math.max(viewport.clientWidth,Math.min(1120,before+delta));
+    if(next===viewport.clientWidth)canvas.style.removeProperty('--circuit-width');
+    else canvas.style.setProperty('--circuit-width',next+'px');
+    viewport.scrollLeft=center*next-viewport.clientWidth/2;
+  }
+  document.getElementById('zoom-in').onclick=()=>zoom(160);
+  document.getElementById('zoom-out').onclick=()=>zoom(-160);
   document.getElementById('restart').onclick=()=>{window.MOSAIC_ALLPRINCIPLE.restartFromCre();window.scrollTo({top:0,behavior:'smooth'});};
   document.getElementById('restart-bxb').onclick=()=>window.MOSAIC_ALLPRINCIPLE.restartFromBxb1();
   function update(){
@@ -16,7 +22,6 @@
     available.forEach((choice,i)=>{const button=document.createElement('button');button.textContent=state==='CRE_SELECT_LOX'?'lox71 · '+choice.position:choice.label.replace('Select ','')+' · '+choice.position;button.style.setProperty('--choice-color',choice.color||'#c6da58');button.onclick=()=>api.choose(choice.id);choices.append(button);});
     document.getElementById('restart-bxb').hidden=state!=='FINAL_OUTCOME';
     if(mobile.matches&&state!==previous){
-      if(state==='CRE_EXPRESSION')viewport.scrollLeft=(width-viewport.clientWidth)/2;
       if(state==='BXB1_SELECT_ATT'||state==='FINAL_OUTCOME'){
         const layer=canvas.querySelector('[data-layer="'+(state==='FINAL_OUTCOME'?'final':'bxbGuide')+'"]');
         if(layer){const rect=layer.getBoundingClientRect();window.scrollBy({top:rect.top-innerHeight*.38,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth'});}
@@ -25,5 +30,4 @@
     previous=state;
   }
   window.addEventListener('mosaic:state',update);update();
-  viewport.scrollLeft=(width-viewport.clientWidth)/2;
 })();
