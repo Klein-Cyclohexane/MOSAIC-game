@@ -1,1 +1,43 @@
-*{box-sizing:border-box}body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer;min-height:44px;border:1px solid #424248;border-radius:12px;background:#161619;color:#fff;padding:10px 16px;touch-action:manipulation}button:focus-visible,a:focus-visible{outline:2px solid #24b8ec;outline-offset:3px}button:active{background:#303038}.play-header{text-align:center;padding:24px 16px 12px}.play-brand{display:block;width:128px;height:auto;margin:0 auto 16px}.play-header h1{font-size:clamp(18px,3vw,22px);font-weight:500;margin:10px 0}.play-header p{color:#b6b6bd;font-size:14px;line-height:1.5;margin:0 auto;max-width:33em}.ap-test-shell main{padding:0 0 40px;width:min(1120px,100%)}#circuit-viewport{width:100%;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}footer{text-align:center;padding:36px 20px}footer a{color:#fff;text-underline-offset:5px;line-height:1.5}.mobile-tools,.play-controls{display:none}[hidden]{display:none!important}@media(max-width:720px){.mobile-tools{display:flex;justify-content:flex-end;gap:8px;padding:8px 16px}.mobile-tools button{min-width:44px;padding:8px 12px}.play-header{padding-top:max(20px,env(safe-area-inset-top))}#mosaic-allprinciple-animation{width:var(--circuit-width,100%);max-width:none}.ap-test-shell main{padding-bottom:200px}.play-controls{display:block;position:fixed;bottom:0;left:0;right:0;z-index:10;background:rgba(13,13,16,.97);border-top:1px solid #35353a;padding:12px 14px max(12px,env(safe-area-inset-bottom));backdrop-filter:blur(12px)}#stage-message{font-size:15px;margin:0 0 10px;line-height:1.4}#choices{display:flex;gap:8px}#choices button{flex:1;min-width:0;border-color:var(--choice-color,#c6da58);font-weight:600;padding:12px 8px}.restart-controls{display:flex;gap:8px;margin-top:8px}.restart-controls button{font-size:13px;flex:1;min-height:44px;background:transparent;color:#ccc}.ap-footer-notes{width:100%;max-width:720px;padding:18px!important}.ap-footer-note{font-size:13px!important}footer{padding:24px 16px}}
+@font-face{font-family:Lexend;src:url('https://static.igem.wiki/teams/6334/wiki/lexend-variablefont-wght.ttf') format('truetype-variations');font-weight:100 900;font-display:swap}
+*{box-sizing:border-box}body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer;min-height:44px;border:1px solid #424248;border-radius:12px;background:#161619;color:#fff;padding:10px 16px;touch-action:manipulation}button:focus-visible,a:focus-visible{outline:2px solid #24b8ec;outline-offset:3px}button:active{background:#303038}.play-header{text-align:center;padding:24px 16px 12px}.play-brand{display:inline-flex;justify-content:center;gap:.025em;font-family:Lexend,sans-serif;font-size:clamp(52px,13vw,88px);font-weight:600;line-height:1.15;margin:0 auto 16px}.play-header h1{font-size:clamp(18px,3vw,22px);font-weight:500;margin:10px 0}.play-header p{color:#b6b6bd;font-size:14px;line-height:1.5;margin:0 auto;max-width:33em}.ap-test-shell main{padding:0 0 40px;width:min(1120px,100%)}#circuit-viewport{width:100%;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}footer{text-align:center;padding:36px 20px}footer a{color:#fff;text-underline-offset:5px;line-height:1.5}.mobile-tools,.play-controls{display:none}[hidden]{display:none!important}@media(max-width:720px){.mobile-tools{display:flex;justify-content:flex-end;gap:8px;padding:8px 16px}.mobile-tools button{min-width:44px;padding:8px 12px}.play-header{padding-top:max(20px,env(safe-area-inset-top))}#mosaic-allprinciple-animation{width:var(--circuit-width,100%);max-width:none}.ap-test-shell main{padding-bottom:200px}.play-controls{display:block;position:fixed;bottom:0;left:0;right:0;z-index:10;background:rgba(13,13,16,.97);border-top:1px solid #35353a;padding:12px 14px max(12px,env(safe-area-inset-bottom));backdrop-filter:blur(12px)}#stage-message{font-size:15px;margin:0 0 10px;line-height:1.4}#choices{display:flex;gap:8px}#choices button{flex:1;min-width:0;border-color:var(--choice-color,#c6da58);font-weight:600;padding:12px 8px}.restart-controls{display:flex;gap:8px;margin-top:8px}.restart-controls button{font-size:13px;flex:1;min-height:44px;background:transparent;color:#ccc}.ap-footer-notes{width:100%;max-width:720px;padding:18px!important}.ap-footer-note{font-size:13px!important}footer{padding:24px 16px}}
+
+.mosaic-wordmark .mosaic-m {
+  color: #ffffff;
+  /* Trim the glyph's left side bearing so the M's ink, not its advance
+     box, starts on the tagline's left edge. */
+  margin-left: -0.075em;
+  display: inline-block;
+  /* a thin chop across the left vertical stroke, centred at 70% height —
+     --m-depth cuts deep enough to sever the stroke, --m-notch-h is the
+     half-height of the thin cut */
+  --m-depth: 33.5%;
+  --m-notch-h: 8.5%;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%,
+      0% calc(70% + var(--m-notch-h)),
+      var(--m-depth) calc(70% + var(--m-notch-h)),
+      var(--m-depth) calc(70% - var(--m-notch-h)),
+      0% calc(70% - var(--m-notch-h)));
+}
+
+.mosaic-wordmark .mosaic-o {
+  color: #e84d85;
+}
+
+.mosaic-wordmark .mosaic-s {
+  color: #9b6ca8;
+}
+
+.mosaic-wordmark .mosaic-a {
+  color: #c6da58;
+}
+
+.mosaic-wordmark .mosaic-i {
+  color: #24b8ec;
+}
+
+.mosaic-wordmark .mosaic-c {
+  color: #ee7954;
+  /* Same for the C's right side bearing. */
+  margin-right: -0.02em;
+}
+
