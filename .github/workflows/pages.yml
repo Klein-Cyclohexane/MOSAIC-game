@@ -18,10 +18,16 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - name: Check JavaScript syntax
         run: |
           node --check dist/allprinciple.js
           node --check dist/play.js
+          node --check dist/play-count.js
+      - name: Verify play counter
+        run: node --test counter/counter.test.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
