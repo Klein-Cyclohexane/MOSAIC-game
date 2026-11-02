@@ -6,9 +6,13 @@ a writable database.
 
 ## Current state
 
-The backend is source code only. It has not been deployed. The footer displays
-an em dash until an API endpoint is configured, and sends no counting requests
-while unconfigured. No historical totals have been invented or imported.
+The backend is deployed at:
+
+`https://mosaic-game-counter.mosaic-game-counter.workers.dev`
+
+The GitHub Pages footer reads the real count from `/api/plays` and records the
+first Cre choice once per browser session. Historical plays before activation
+are not included. QA traffic is kept in the separate test scope.
 
 ## Count definition
 
@@ -48,6 +52,9 @@ Using an authorized Cloudflare account:
    to the deployed Worker's actual `/api/plays` URL, then publish the Pages update.
 
 No API token should be committed or embedded in frontend JavaScript.
+
+The deployed D1 database ID is managed in the Cloudflare deployment. The empty
+ID in this repository is a template for recreating the service in another account.
 
 ## API
 
